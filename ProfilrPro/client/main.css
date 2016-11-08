@@ -1,0 +1,77 @@
+/* CSS declarations go here */
+body {
+  padding-top: 75px;
+  background-image: url(http://www.planwallpaper.com/static/images/6969013-hd-wallpapers-1080p-27697.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+#profileContainer {
+  width: 60%;
+}
+
+.EachProfile{
+  font: 25px georgia,arial,sans-serif;
+  color: grey;
+  background-color: lightgrey;
+  border: 1px dotted black;
+  padding: 4px;
+}
+
+.tags{
+  background-color: lightgrey;
+  border: 2px dotted black;
+  padding: 4px;
+}
+
+.welcome{
+  font: 80px italic;
+  top: 50%;
+  position: absolute;
+  transform: translate(0, -25%);
+}
+
+.welcometext{
+  font: 20px italic;
+  top: 12%;
+  position: absolute;
+}
+
+.welcomepara{
+  font: 18px italic;
+  top: 18%;
+  position: absolute;
+}
+
+body{
+  font: 18px italic;
+}
+
+h2{
+  font: 15px arial,georgia,sans-serif;
+  color: white;
+  background-color: black;
+  border: 2px dotted white;
+  padding: 6px;
+}
+
+h1{
+  font: 20px bold italic Georgia;
+  color: black;
+  background-color: grey;
+  border: 2px dotted black;
+  padding: 5px;
+}
+
+h3{
+  font: 25px georgia,arial,sans-serif;
+  color: grey;
+  background-color: pink;
+  border: 2px dotted black;
+  padding: 4px;
+}
+
+.img-circle{
+  border: 4px dotted red;
+  padding: 5px;
+}

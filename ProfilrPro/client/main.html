@@ -1,0 +1,122 @@
+<head>
+  <title>ProfilrPro</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">ProfilrPro</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class><a href="/home">Home</a></li>
+            <li class><a href="/new">New Profile</a></li>
+            <li class><a href="/all">All Profiles</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</body>
+
+<template name="profilrpro">
+    <div class="container" id="homeContainer">
+        <p class="welcome"><strong>ProfilrPro</strong></p>
+    </div>
+</template>
+
+<template name="home">
+    <div class="container" id="homeContainer">
+      <p class="welcometext"><strong>Welcome to ProfilrPro.</strong></p>
+      <p class="welcomepara">Here at ProfilrPro we will take care of all your profiling needs.<br>
+      Head into the New Profile tab to create your prosonal profile.<br>
+      Head into the All Profiles tab to find any and every profile.<br>
+      Here, friends and complete strangers will be able to find and comment on your profile.</p>
+    </div>
+</template>
+
+<template name="profile">
+  <div class="container" id="profileContainer">
+    <center>
+      <img src="{{profile.picture}}" name="aboutme" width="{{profile.width}}" height="{{profile.height}}" border="0" class="img-circle"><br><br>
+      <h3 class="media-heading" style="display:inline">{{profile.firstName}} {{profile.lastName}} <small>{{profile.age}}</small></h3><br><br>
+      <span class="tags" style="display:inline"><strong>Strengths: </strong></span><br><br>
+      <h1 style="display:inline">{{profile.strengths}}</h1><br>
+    </center>
+      <center>
+      <h2 class="text-left"><strong>Bio: </strong><br>
+          {{profile.bio}}
+      </h2>
+      <br>
+    </center>
+    <center>
+      <form id="newComment">
+        <div class="form-group">
+          <label for="Name" class="tags">Name</label><br>
+          <input type="text" class="form-control" id="Name" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="comment" class="tags">Comment</label><br>
+          <input type="text" class="form-control" id="comment" placeholder="Hi">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </center>
+    <h2 class="text-left" style="display:inline"><strong>Comments:</strong></h2><br><br>
+    {{#each profile.comments}}
+      <p>{{this.comment}} - {{this.posterFullName}}</p>
+    {{/each}}
+  </div>
+</template>
+
+<template name="new">
+  <div class="container" id="newContainer">
+      <form id="newProfile">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Doe">
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" placeholder="21">
+        </div>
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <input type="text" class="form-control" id="bio" placeholder="ProfilrPro is the best.">
+        </div>
+        <div class="form-group">
+          <label for="strengths">Strengths</label>
+          <input type="text" class="form-control" id="strengths" placeholder="Strengths">
+        </div>
+        <div class="form-group">
+          <label for="picture">Profile Picture</label>
+          / <label for="pwidth">Width</label>
+          / <label for="pheight">Height</label>
+          <input type="text" class="form-control" id="picture" placeholder="Picture link address">
+          <input type="number" class="form-control" id="pwidth" placeholder="Width = 160">
+          <input type="number" class="form-control" id="pheight" placeholder="Height = 160">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+  </div>
+</template>
+
+<template name="all">
+    <div class="container" id="homeContainer">
+      <h2 style="display:inline"><strong>Profiles:</strong></h2><br><br>
+      {{ #each profiles }}
+        <img src="{{this.picture}}" name="aboutme" width="60" height="60" border="0">
+        <p class="EachProfile" style="display:inline"><a href="p/{{this.userId}}">{{this.firstName}} {{this.lastName}}</a></p><br><br>
+      {{ /each }}
+    </div>
+</template>
